@@ -1,0 +1,82 @@
+<footer>
+
+  <div class="grid12">
+    <div class="g-xs6 g-sm4 g-md3">
+      <section class="ServiceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <h3>{{ 'Customer service' | t }}</h3>
+        <ul>
+          {% for link in shop.links.service %}
+            <li><a href="{{ link.url | url }}" itemprop="name url">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+
+    <div class="g-xs6 g-sm4 g-md3">
+      <section class="ServiceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <h3>{{ 'Products' | t }}</h3>
+        <ul>
+          <li><a href="{{ 'collection' | url }}" itemprop="name url">{{ 'All products' | t }}</a></li>
+          <li><a href="{{ 'collection/?sort=newest' | url }}" itemprop="name url">{{ 'Newest products' | t }}</a></li>
+          <li><a href="{{ 'collection/offers' | url }}" itemprop="name url">{{ 'Offers' | t }}</a></li>
+          {% if shop.brands %}
+          <li><a href="{{ 'brands' | url }}" itemprop="name url">{{ 'Brands' | t }}</a></li>
+          {% endif %}
+          {% if shop.tags %}
+          <li><a href="{{ 'tags' | url }}" itemprop="name url">{{ 'Tags' | t }}</a></li>
+          {% endif %}
+          <li><a href="{{ 'index.rss' | url }}" itemprop="name url">{{ 'RSS feed' | t }}</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="g-xs6 g-sm4 g-md3">
+      <section class="ServiceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <h3>{{ 'My Account' | t }}</h3>  
+        <ul>
+          <li><a href="{{ 'account' | url }}" itemprop="name url">{{ 'My account' | t }}</a></li>
+          <li><a href="{{ 'account/orders' | url }}" itemprop="name url">{{ 'My orders' | t }}</a></li>
+          <li><a href="{{ 'account/tickets' | url }}" itemprop="name url">{{ 'My tickets' | t }}</a></li>
+          <li><a href="{{ 'account/wishlist' | url }}" itemprop="name url">{{ 'My wishlist' | t }}</a></li>
+          {% if page.account %}
+          <li><a href="{{ 'account/logout' | url }}" itemprop="name url">{{ 'Logout' | t }}</a></li>
+          {% endif %}
+        </ul>
+      </section>
+    </div>
+
+    {% if shop.hallmarks %}
+      <div class="g-xs12 g-md3">
+        <section class="Hallmarks">
+          <h3>{{ 'Hallmarks' | t }}</h3>
+          <ul class="u-listInline">  
+            {% for hallmark in shop.hallmarks %}
+              <li class="Hallmarks-hallmark"><a href="{{ hallmark.url | url }}" {% if hallmark.new_window %} target="_blank" {% endif %}>
+                {% if hallmark.image %}
+                  <img src="{{ hallmark.image | url_image() }}" alt="{{ hallmark.title }}">
+                {% else %}
+                  {{ hallmark.title }}
+                {% endif %}
+              </a></li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="grid12">
+    <div class="g-xs12">
+      <aside class="Payments" itemscope itemtype="https://schema.org/PaymentMethod">
+        <ul class="u-listInline">
+          {% for payment in shop.payments %}
+            <li class="Payments-payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="acceptedPaymentMethod url">
+              <img src="{{ payment.icon | url_core }}" alt="{{ payment.title }}" itemprop="image">
+            </a></li>
+          {% endfor %}
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+</footer>

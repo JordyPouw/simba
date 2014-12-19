@@ -1,0 +1,16 @@
+{% if brands %}
+  <div class="grid12">
+  	{% for brand in brands %}
+  		<div class="g-xs6 g-sm4 g-md3">
+  			<article class="Brand" itemscope itemtype="http://schema.org/SiteNavigationElement">
+          {% if brand.image %}
+            <img src="{{ brand.image | url_image('270x240x1', brand.title) }}" alt="{{ brand.title }}" itemprop="image">
+          {% endif %}    
+          <a href="{{ brand.url | url }}" itemprop="url">
+            <h2 itemprop="name">{{ brand.title }}</h2>
+          </a>  
+        </article>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

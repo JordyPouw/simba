@@ -1,0 +1,11 @@
+{% if shop.tags %}
+  <div class="grid12">
+    <div class="g-xs12">
+      <ul>
+        {% for tag in shop.tags %}
+          <li><a href="{{ tag.url | url }}">{{ tag.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

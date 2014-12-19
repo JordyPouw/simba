@@ -1,3 +1,30 @@
-Simba Framework
-========
-Het thema framework voor het SEOshop platform.
+# Simba: Alpha Version 0.1
+*Note: it's an alpha version, not ready for deployment.*
+
+### Simplify Theme Development for SEOshop
+Built for SEOshop theme developers of any skill level. You can use Simba as a quick starting point and speed up your workflow.
+
+Simba is a frontend framework that makes building SEOshop themes quick and easy. The main goal when developing Simba was to create a solid starting point for the development of a SEOshop theme. It gives the minimum requirements that is needed before you can publish a theme in the SEOshop store. No code bloat.
+
+[Visit the Simba demo store.](http://example.com/)
+
+## Currently working on...
+- Account
+- Brand
+- Breadcrumbs
+- Cart
+- Category
+- Copyright
+- Currencies
+- Filter
+- Hallmarks
+- Headlines
+- Languages
+- Logo
+- Messages
+- Navigation
+- Newsletter
+- Payments
+- Product
+- Search
+- ServiceLinks

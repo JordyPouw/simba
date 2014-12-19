@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html lang="{{ shop.language }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ shop.language }}" class="no-js"> <!--<![endif]-->
+  <head>
+    {% include 'blocks/head.rain' %}
+    <title>{{ page.title }} - {{ shop.name }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="{{ shop.description }}">
+    <meta name="keywords" content="{{ shop.keywords }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ 'favicon.ico' | url_asset }}">
+    <link rel="apple-touch-icon" href="{{ 'apple-touch-icon-precomposed.png' | url_asset }}">
+    <link rel="stylesheet" href="{{ 'simba.css' | url_asset }}">
+    <link rel="stylesheet" href="{{ 'settings.css' | url_asset }}">
+    <link rel="stylesheet" href="{{ 'custom.css' | url_asset }}">
+    <script src="{{ 'modernizr-2-8-3-min.js' | url_asset }}"></script>
+  </head>
+  <body>
+    
+    {% include 'snippets/messages.rain' %}
+    {% include 'snippets/header.rain' %}
+    {% include template %}
+    {% include 'snippets/footer.rain' %}
+    
+    {% if shop.links.powered_by %}
+      <div class="grid12">
+        <div class="g-xs12 g-md6">
+          <aside class="Copyright">
+            <small>Powered by 
+              {% for link in shop.links.powered_by %}
+                <a href="{{ link.url | url }}" {% if link.new_window %} target="_blank" {% endif %}>{{ link.title }}</a>
+                {% if not loop.last %} - {% endif %}
+              {% endfor %}
+            </small>
+          </aside>  
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Scripts. -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ 'jquery-1-9-1.js' | url_core }}"><\/script>')</script>
+    <script src="{{ 'simba.js' | url_asset }}"></script>
+    {% include 'blocks/body.rain' %} 
+
+  </body>
+</html>
