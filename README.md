@@ -28,3 +28,10 @@ Simba is a frontend framework that makes building SEOshop themes quick and easy.
 - Product
 - Search
 - ServiceLinks
+
+
+
+
+
+*****
+Build and maintained by [Jordy Pouw.](https://twitter.com/JordyPouw) Licensed under [MIT.](https://github.com/JordyPouw/simba/blob/master/LICENSE)
