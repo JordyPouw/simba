@@ -1,6 +1,6 @@
 {% if collection.mode == 'list' %}
   <div class="g-xs12">
-    <article class="Product" itemscope itemtype="http://schema.org/Product">
+    <article class="product" itemscope itemtype="http://schema.org/Product">
       {% if product.image %}
         <img src="{{ product.image | url_image('270x300x1', product.fulltitle) }}" alt="{{ product.fulltitle }}" itemprop="image">
       {% endif %}
@@ -13,7 +13,7 @@
   </div>
 {% else %}
   <div class="g-xs6 g-sm4 g-md3">
-    <article class="Product" itemscope itemtype="http://schema.org/Product">
+    <article class="product" itemscope itemtype="http://schema.org/Product">
       {% if product.image %}
         <img src="{{ product.image | url_image('270x300x1', product.fulltitle) }}" alt="{{ product.fulltitle }}" itemprop="image">
       {% endif %}

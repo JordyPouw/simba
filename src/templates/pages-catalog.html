@@ -1,9 +1,11 @@
 <main>
 
   {% if catalog.categories %}
-    <div class="grid12">
+    <div class="g-row12">
     	{% for category in catalog.categories %}
-			  {% include 'snippets/categories.rain' %}
+    		<div class="g-xs6 g-sm4 g-md3">
+			  	{% include 'snippets/categories.rain' %}
+		  	</div>
 	    {% endfor %}
 	  </div>
 	{% endif %}	

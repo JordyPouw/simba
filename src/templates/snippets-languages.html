@@ -1,0 +1,9 @@
+<ul class="languages u-nav" itemscope itemtype="http://schema.org/Language">
+  <li class="languages-language u-nav-item"><a href="{{ language.url | url }}" title="{{ language.title }}" itemprop="availableLanguage">{{ shop.language2.code }}</a>
+    <ul class="u-nav-subnav">
+      {% for language in shop.languages %}
+        <li class="Languages-language"><a href="{{ language.url | url }}" title="{{ language.title }}" itemprop="availableLanguage">{{ language.code }}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>

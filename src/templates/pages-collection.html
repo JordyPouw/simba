@@ -3,14 +3,14 @@
 	{% include 'snippets/filter.rain' %}
 	
 	{% if not collection.products %}
-	  <div class="grid12">
+	  <div class="g-row12">
 	    <div class="g-xs12">
 	      <p>{{ 'No products found' | t }}...</p>
 	    </div>
 	  </div>
 	{% endif %}
 
-	<div class="grid12">
+	<div class="g-row12">
 	  {% for product in collection.products %}
 			{% include 'snippets/products.rain' %}
 	  {% endfor %}

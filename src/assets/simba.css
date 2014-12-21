@@ -517,19 +517,19 @@ table th {
 }
 
 /* Micro clearfix method. */
-.grid12:before,
-.grid12:after {
+.g-row12:before,
+.g-row12:after {
   content: " ";
   display: table;}
-.grid12:after {
+.g-row12:after {
   clear: both;
 }
 
-.grid12 .grid12:before,
-.grid12 .grid12:after {
+.g-row12 .g-row12:before,
+.g-row12 .g-row12:after {
   content: " ";
   display: table;}
-.grid12 .grid12:after {
+.g-row12 .g-row12:after {
   clear: both;
 }
 
@@ -537,17 +537,17 @@ table th {
 /* $ Grid Fundamentals.
 ================================================== */
 
-.grid12 {
+.g-row12 {
   width: 100%;
   max-width: 1200px; /* changeable */
   margin: 0 auto;   
 }
 
-.grid12--fullWidth {
+.g-row12--fullWidth {
   max-width: none;
 }
 
-.grid12 .grid12 {
+.g-row12 .g-row12 {
   width: auto;
   max-width: none;
   margin: 0 -15px;
@@ -845,25 +845,25 @@ table th {
 ================================================================================ */
 
 /* Set bottom margins for the components. */
-.Brand,
-.Breadcrumbs,
-.Languages,
-.Currencies,
-.Filter,
-.Logo,
-.Account,
-.Cart,
-.Search,
-.Navigation,
-.Headlines,
-.Product,
-.Category,
+.account,
+.brand,
+.breadcrumbs,
+.cart,
+.category,
+.copyright,
+.currencies,
+.filter,
+.hallmarks,
+.headlines,
+.languages,
+.logo,
 .messages,
-.Newsletter,
-.ServiceLinks,
-.Hallmarks,
-.Copyright,
-.Payments {
+.navigation,
+.newsletter,
+.payments,
+.product,
+.search,
+.serviceLinks {
   margin-bottom: 0.625em;
 }
 
@@ -871,13 +871,13 @@ table th {
 /* $ SEOshop components. 
 ================================================== */
 
-/* Languages. */
-.Languages-language {
-  text-transform: uppercase;
+/* Hallmarks and Payments. */
+.hallmarks-hallmark, .payments-payment {
+  margin-bottom: 0.625em;
 }
 
-/* Hallmarks and Payments. */
-.Hallmarks-hallmark, .Payments-payment {
-  margin-bottom: 0.625em;
+/* Languages. */
+.languages-language {
+  text-transform: uppercase;
 }
 

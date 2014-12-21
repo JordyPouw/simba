@@ -1,6 +1,6 @@
 <main>
 	
-	<div class="grid12">
+	<div class="g-row12">
 		<div class="g-xs12">
 			{% if shop.settings.social.facebook 
 				 or shop.settings.social.google 
@@ -70,7 +70,7 @@
 		</div>
 	</div>
 
-	<div class="grid12">
+	<div class="g-row12">
 		<div class="g-xs12 g-sm6">
 			{% if product.image %}
 				<img src="{{ product.image | url_image('270x300x2', product.fulltitle) }}" alt="{{ product.fulltitle }}">
@@ -92,6 +92,8 @@
 					<h1>{{ product.title }}</h1>
 				</header>
 				<main>
+					<p>{{ product.price.price | money }}</p>
+
 					{% if product.description %}
 						<p>{{ product.description }}</p>
 					{% endif %}
@@ -100,7 +102,84 @@
 						<p>{{ product.content }}</p>
 					{% endif %}
 
-					<p>{{ product.price.price | money }}</p>
+					{% if product.score
+						 or product.code 
+						 or product.brand 
+						 or product.stock.track and product.stock.on_stock 
+						 or product.stock.delivery 
+						 or product.unit
+						 or product.specs
+					%}
+						<table>
+						  {% if product.score %}
+							  <tr>
+							    <td>{{ 'Product score' | t }}:</td>
+							    <td>{{ product.score * 10 }}/10</td>
+							  </tr>
+						  {% else %}
+							  <tr>
+							    <td>{{ 'Product score' | t }}:</td>
+							    <td>{{ {{ 'Not yet rated' | t }}</td>
+							  </tr>
+						  {% endif %}
+						  {% if product.code %}
+							  <tr>
+							    <td>{{ 'Article number' | t }}:</td>
+							    <td>{{ product.code }}</td>
+							  </tr>
+						  {% endif %}
+						  {% if product.code %}
+							  <tr>
+							    <td>{{ 'Article number' | t }}:</td>
+							    <td>{{ product.code }}</td>
+							  </tr>
+						  {% endif %}
+							{% if product.brand %}
+								<tr>
+									<td>{{ 'Brand' | t }}</td>
+									<td>{{ product.brand.title }}</td>
+							  </tr>
+							{% endif %}
+						  {% if product.stock.track and product.stock.on_stock %}
+							  <tr>
+							    <td>{{ 'Quantity' | t }}:</td>
+							    <td>{{ product.stock.level }}</td>
+							  </tr>
+						  {% endif %}
+						  {% if product.stock.delivery %}
+							  <tr>
+							    <td>{{ 'Delivery time' | t }}:</td>
+							    <td>{{ product.stock.delivery.title }}</td>
+							  </tr>
+						  {% endif %}
+						  {% if product.unit %}
+							  <tr>
+							    <td>{{ 'Unit price' | t }}:</td>
+							    <td>{{ product.unit.price | money }} / {{ product.unit.unit }}</td>
+							  </tr>
+						  {% endif %}
+						  {% if product.specs %}
+						    {% for spec in product.specs %}
+						      <tr>
+						        <td>{{ spec.title }}</td>
+						        <td>{{ spec.value }}</td>
+						      </tr>
+						    {% endfor %}
+						  {% endif %}
+						</table>
+					{% endif %}
+
+					<form action="{{ ('cart/add/' ~ product.vid) | url }}" id="product_configure_form" method="post">  
+					  {{ product | html_product_configure | raw }}
+					  <section class="u-inputGroup">  
+					    {% if product.stock.available %}
+					      <input class="u-inputGroup-field" type="number" name="quantity" value="{{ product.quantity }}">
+					      <span class="u-inputGroup-btn"><input type="submit" value="{{ 'Add to cart' | t }}" onclick="$('#product_configure_form').submit();"></span>
+					    {% else %}
+					      <p>{{ 'Out of stock' | t }}</p>
+					    {% endif %}
+					  </section>
+					</form>
 				</main>
 				<footer>
 					<ul>
@@ -109,6 +188,7 @@
 						{% endif %}
 						<li><a href="{{ ('compare/add/' ~ product.vid) | url }}">{{ 'Add to compare' | t }}</a></li>
 						<li><a href="{{ ('account/wishlistAdd/' ~ product.id) | url }}">{{ 'Add to wishlist' | t }}</a></li>
+						<li><a href="{{ ('account/review/' ~ product.id) | url }}">{{ 'Add your review' | t }}</a></li>
 					</ul>
 				</footer>
 			</section>

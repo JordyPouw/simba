@@ -1,0 +1,9 @@
+<section class="account u-right">
+  <a href="{{ 'account' | url }}">
+    {% if page.account %}
+      {{ 'Welcome, $1!' | t(page.account.firstname) | raw }}              
+    {% else %}
+      {{ 'My account' | t }}
+    {% endif %}
+  </a>
+</section>

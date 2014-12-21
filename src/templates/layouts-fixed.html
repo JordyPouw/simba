@@ -23,9 +23,9 @@
     {% include 'snippets/footer.rain' %}
     
     {% if shop.links.powered_by %}
-      <div class="grid12">
+      <div class="g-row12">
         <div class="g-xs12 g-md6">
-          <aside class="Copyright">
+          <aside class="copyright">
             <small>Powered by 
               {% for link in shop.links.powered_by %}
                 <a href="{{ link.url | url }}" {% if link.new_window %} target="_blank" {% endif %}>{{ link.title }}</a>

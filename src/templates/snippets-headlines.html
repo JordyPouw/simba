@@ -1,0 +1,9 @@
+<article class="headlines">
+  {% for headline in headlines %}
+    <section>
+	    {% if headline.url %} <a href="{{ headline.url | url }}"> {% endif %}
+	      <img src="{{ headline.image | url_image }}" alt="{{ headline.title }}">
+	    {% if headline.url %}</a>{% endif %}
+    </section>
+  {% endfor %}
+</article>

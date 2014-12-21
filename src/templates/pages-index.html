@@ -1,58 +1,46 @@
 <main>
 
 	{% if headlines %}
-		<div class="grid12">
+		<div class="g-row12">
 			<div class="g-xs12">
-			  <article class="Headlines">
-				  {% for headline in headlines %}
-				    <section>
-					    {% if headline.url %} <a href="{{ headline.url | url }}"> {% endif %}
-					      <img src="{{ headline.image | url_image }}" alt="{{ headline.title }}">
-					    {% if headline.url %}</a>{% endif %}
-				    </section>
-				  {% endfor %}
-			  </article>
+			  {% include 'snippets/headlines.rain' %}
 	  	</div>
 	  </div>
 	{% endif %}
 
-	<div class="grid12">
+	<div class="g-row12">
 		<div class="g-xs12">
 			<h1>{{ 'Featured' | t }}</h1>
 	  </div>
 	</div>
 
 	{% if featured %}
-	  <div class="grid12">
+	  <div class="g-row12">
 	    {% for product in featured %}
 				{% include 'snippets/products.rain' %}
 	    {% endfor %}
 	  </div>
 	{% endif %}
   
-  <div class="grid12">
+  <div class="g-row12">
   	<div class="g-xs12">
   		<h1>{{ 'Categories' | t }}</h1>
     </div>
   </div>
 
   {% if categories %}
-    <div class="grid12">
+    <div class="g-row12">
     	{% for category in categories %}
-			  {% include 'snippets/categories.rain' %}
+	    	<div class="g-xs6 g-sm4 g-md3">
+			  	{% include 'snippets/categories.rain' %}
+		  	</div>
 	    {% endfor %}
 	  </div>
-	{% endif %}		  
+	{% endif %}
 
-  <div class="grid12">
+  <div class="g-row12">
   	<div class="g-xs12">
-	    <section class="Newsletter">
-	      <form class="u-inputGroup" id="formNewsletter" action="{{ 'account/newsletter' | url }}" method="post">
-	      	<input type="hidden" name="key" value="{{ page.key }}">
-	        <input class="u-inputGroup-field" id="formNewsletterEmail" type="email" name="email" placeholder="{{ 'Enter your email adress' | t }}">
-	        <span class="u-inputGroup-btn"><input class="btn" type="submit" onclick="$('#formNewsletter').submit(); return false;" value="{{ 'Subscribe' | t }}"></span>  
-	      </form>
-	    </section>
+	    {% include 'snippets/newsletter.rain' %}
     </div>
   </div>
 

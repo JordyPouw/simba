@@ -2,9 +2,9 @@
   <input type="hidden" name="mode" value="{{ collection.filters.mode }}" id="filter__value__mode">
 </form>
 
-<div class="grid12">
+<div class="g-row12">
   <div class="g-xs12">
-    <select class="Filter filter__sort" form="filter__values" name="sort" onchange="$('#filter__values').submit();">
+    <select class="filter filter__sort" form="filter__values" name="sort" onchange="$('#filter__values').submit();">
       {% for sort in collection.sorts %}
         <option value="{{ sort.id }}" {% if collection.filters.sort == sort.id %}selected{% endif %}>{{ sort.title }}</option>
       {% endfor %}
@@ -12,7 +12,7 @@
   </div>
 
   <div class="g-xs12">
-    <ul class="Filter u-listInline">
+    <ul class="filter u-listInline">
       <li class="filter__mode--grid{% if collection.modes.grid.id == collection.mode2.id %} is-active{% endif %}">Grid</li>
       <li class="filter__mode--list{% if collection.modes.list.id == collection.mode2.id %} is-active{% endif %}">List</li>
     </ul>

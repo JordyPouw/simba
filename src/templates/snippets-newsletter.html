@@ -1,0 +1,7 @@
+<section class="newsletter">
+  <form class="u-inputGroup" id="formNewsletter" action="{{ 'account/newsletter' | url }}" method="post">
+  	<input type="hidden" name="key" value="{{ page.key }}">
+    <input class="u-inputGroup-field" id="formNewsletterEmail" type="email" name="email" placeholder="{{ 'Enter your email adress' | t }}">
+    <span class="u-inputGroup-btn"><input class="btn" type="submit" onclick="$('#formNewsletter').submit(); return false;" value="{{ 'Subscribe' | t }}"></span>  
+  </form>
+</section>

@@ -1,125 +1,51 @@
 <header>
 
-  <div class="grid12">
+  <div class="g-row12">
     {% if shop.currencies | length > 1 %}
       <div class="g-xs3 g-sm2 g-md1">
-        <ul class="Currencies u-nav" itemscope itemtype="http://schema.org/PriceSpecification">
-          <li class="u-nav-item"><a href="{{ currency.url | url }}" title="{{ currency.title }}" itemprop="priceCurrency">{{ shop.currency2.code }}</a>
-            <ul class="u-nav-subnav">
-              {% for currency in shop.currencies %}
-                <li><a href="{{ currency.url | url }}" title="{{ currency.title }}" itemprop="priceCurrency">{{ currency.code }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
+        {% include 'snippets/currencies.rain' %}
       </div>
     {% endif %}
 
     {% if shop.languages | length > 1 %}
       <div class="g-xs3 g-sm2 g-md1">
-        <ul class="Languages u-nav" itemscope itemtype="http://schema.org/Language">
-          <li class="Languages-language u-nav-item"><a href="{{ language.url | url }}" title="{{ language.title }}" itemprop="availableLanguage">{{ shop.language2.code }}</a>
-            <ul class="u-nav-subnav">
-              {% for language in shop.languages %}
-                <li class="Languages-language"><a href="{{ language.url | url }}" title="{{ language.title }}" itemprop="availableLanguage">{{ language.code }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
+        {% include 'snippets/languages.rain' %}
       </div>
     {% endif %}
   </div>
 
-  <div class="grid12">
+  <div class="g-row12">
     <div class="g-xs12 g-md6">
-      <article class="Logo" itemscope itemtype="http://schema.org/Organization">
-        <a href="{{ '' | url }}">
-          <img src="{{ 'logo.png' | url_asset }}" alt="{{ shop.title }}" itemprop="logo">
-        </a>
-      </article>
+      {% include 'snippets/logo.rain' %}
     </div>
     
     <div class="g-xs12 g-md6">
-      <div class="grid12">
+      <div class="g-row12">
         <div class="g-xs6 g-md12">
-          <div class="Account u-right">
-            <a href="{{ 'account' | url }}">
-              {% if page.account %}
-                {{ 'Welcome, $1!' | t(page.account.firstname) | raw }}              
-              {% else %}
-                {{ 'My account' | t }}
-              {% endif %}
-            </a>
-          </div>
+          {% include 'snippets/account.rain' %}
         </div>
         
         <div class="g-xs6 g-md12">
-          <div class="Cart u-right">
-            <a href="{{ 'cart' | url }}" >
-              {{ page.cart.products | length }} {{ 'items' | t }} - {{ page.cart.total.price | money }}
-            </a>
-          </div>
+          {% include 'snippets/cart.rain' %}
         </div>
         
         <div class="g-xs12 g-md6 u-right">
-          <div class="Search" itemscope itemtype="http://schema.org/SearchAction">
-            <form class="u-inputGroup" id="formSearch" action="{{ 'search' | url }}" method="get">
-              <input class="u-inputGroup-field" type="search" name="q" placeholder="{{ 'Find your product' | t }}" itemprop="query">
-              <span class="u-inputGroup-btn"><input type="submit" value="{{ 'Search' | t }}" onclick="$('#formSearch').submit();"></span>
-            </form>
-          </div>
+          {% include 'snippets/search.rain' %}
         </div>
       </div>
     </div>
   </div>
 
-  <div class="grid12">
+  <div class="g-row12">
     <div class="g-xs12">  
-      <nav class="Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-        <ul class="u-nav">
-          <li class="u-nav-item"><a href="{{ '' | url }}" itemprop="name url">{{ 'Home' | t }}</a></li>
-          {% for category in shop.categories %}
-            <li class="u-nav-item"><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a>
-              {% if category.subs %}
-                <ul class="u-nav-subnav">
-                  {% for category in category.subs %}
-                    <li><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a>
-                      {% if category.subs %}
-                        <ul class="u-nav-subnav">
-                          {% for category in category.subs %}
-                            <li><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a></li>
-                          {% endfor %}
-                        </ul>
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-          {% for blog in shop.blogs %}
-            <li class="u-nav-item"><a href="{{ blog.url | url }}" itemprop="name url">{{ blog.title }}</a>
-              <ul class="u-nav-subnav">
-                {% for article in blog.articles %}
-                  <li><a href="{{ article.url | url }}" itemprop="name url">{{ article.title }}</a></li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+      {% include 'snippets/navigation.rain' %}
     </div>
   </div>
 
   {% if template != 'pages/index.rain' %}
-    <div class="grid12">
+    <div class="g-row12">
       <div class="g-xs12">
-        <ul class="Breadcrumbs u-listInline">
-          <li><a href="{{ '' | url }}">{{ 'Home' | t }}</a></li>
-          {% for breadcrumb in page.breadcrumbs %}
-            <li><a href="{{ breadcrumb.url | url }}">&#187; {{ breadcrumb.title }}</a></li>
-          {% endfor %}
-        </ul>    
+        {% include 'snippets/breadcrumbs.rain' %}   
       </div>
     </div>
   {% endif %}

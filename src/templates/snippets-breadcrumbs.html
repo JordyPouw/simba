@@ -1,0 +1,6 @@
+<ul class="breadcrumbs u-listInline">
+  <li><a href="{{ '' | url }}">{{ 'Home' | t }}</a></li>
+  {% for breadcrumb in page.breadcrumbs %}
+    <li><a href="{{ breadcrumb.url | url }}">&#187; {{ breadcrumb.title }}</a></li>
+  {% endfor %}
+</ul> 

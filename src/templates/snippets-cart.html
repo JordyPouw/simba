@@ -1,0 +1,5 @@
+<section class="cart u-right">
+  <a href="{{ 'cart' | url }}" >
+    {{ page.cart.products | length }} {{ 'items' | t }} - {{ page.cart.total.price | money }}
+  </a>
+</section>
