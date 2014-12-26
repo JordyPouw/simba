@@ -1,5 +1,11 @@
 <main>
 
-	{% include 'snippets/tags.rain' %}
+	{% if shop.tags %}
+	  <div class="g-row12">
+	    <div class="g-xs12">
+				{% include 'snippets/tags.rain' %}
+	    </div>
+	  </div>
+	{% endif %}
 	
 </main>

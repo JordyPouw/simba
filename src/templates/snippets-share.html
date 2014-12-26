@@ -1,0 +1,58 @@
+<ul class="u-listInline">
+	{% if shop.settings.social.facebook %}                    
+	  <li>
+	  	<div id="fb-root"></div>
+	    <script>
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=154005474684339";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+	    </script>
+	    <div class="fb-like" data-href="{{ product.url | url }}" data-send="false" data-layout="button_count" data-width="85" data-show-faces="false"></div>
+	  </li>
+	{% endif %}
+	{% if shop.settings.social.google %}
+		<li>
+		  <g:plusone size="medium"></g:plusone>
+			<script>
+				(function() {
+				  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				  po.src = 'https://apis.google.com/js/plusone.js';
+				  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				})();
+			</script>
+		</li>
+	{% endif %}
+	{% if shop.settings.social.pinterest %}
+		<li>
+		  <a href="http://pinterest.com/pin/create/button/?url={{ product.url | url | url_encode }}&media={{ product.image | url_image('', product.fulltitle) | url_encode }}&description={{ product.fulltitle | url_encode }}" class="pin-it-button" count-layout="horizontal" target="_blank"><img src="{{ 'pinext.png' | url_asset }}" alt="Pin It" /></a>
+		  <script src="http://assets.pinterest.com/js/pinit.js"></script>
+		</li>
+	{% endif %}
+	{% if shop.settings.social.twitter %}
+	  <li>
+	    <a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ shop.settings.social.twitter }}">Tweet</a>
+	    <script>
+		    !function(d, s, id) {
+		      var js, fjs = d.getElementsByTagName(s)[0];
+		      if (!d.getElementById(id)) {
+		        js = d.createElement(s);
+		        js.id = id;
+		        js.src = "//platform.twitter.com/widgets.js";
+		        fjs.parentNode.insertBefore(js, fjs);
+		      }
+		    }(document, "script", "twitter-wjs");
+	    </script>
+	  </li>
+	{% endif %}
+  {% if shop.settings.social.addthis %}
+	  <li>
+	    <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_compact"></a></div>
+	    <script>var addthis_config = {"data_track_clickback":true};</script>
+	    <script src="http://s7.addthis.com/js/250/addthis_widget.js#pubid={{ shop.settings.social.addthis }}"></script>
+	  </li>
+  {% endif %}
+</ul>
