@@ -1,14 +1,14 @@
 <nav class="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
   <ul class="u-nav">
-    <li class="u-nav-item"><a href="{{ '' | url }}" itemprop="name url">{{ 'Home' | t }}</a></li>
+    <li class="u-nav__item"><a href="{{ '' | url }}" itemprop="name url">{{ 'Home' | t }}</a></li>
     {% for category in shop.categories %}
-      <li class="u-nav-item"><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a>
+      <li class="u-nav__item"><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a>
         {% if category.subs %}
-          <ul class="u-nav-subnav">
+          <ul class="u-nav__subnav">
             {% for category in category.subs %}
               <li><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a>
                 {% if category.subs %}
-                  <ul class="u-nav-subnav">
+                  <ul class="u-nav__subnav">
                     {% for category in category.subs %}
                       <li><a href="{{ category.url | url }}" itemprop="name url">{{ category.title }}</a></li>
                     {% endfor %}
@@ -21,8 +21,8 @@
       </li>
     {% endfor %}
     {% for blog in shop.blogs %}
-      <li class="u-nav-item"><a href="{{ blog.url | url }}" itemprop="name url">{{ blog.title }}</a>
-        <ul class="u-nav-subnav">
+      <li class="u-nav__item"><a href="{{ blog.url | url }}" itemprop="name url">{{ blog.title }}</a>
+        <ul class="u-nav__subnav">
           {% for article in blog.articles %}
             <li><a href="{{ article.url | url }}" itemprop="name url">{{ article.title }}</a></li>
           {% endfor %}

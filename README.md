@@ -1,4 +1,4 @@
-# Simba: Alpha Version 0.5
+# Simba: Alpha Version 0.7
 *Note: it's an alpha version, not ready for deployment.*
 
 ### Simplify Theme Development for SEOshop

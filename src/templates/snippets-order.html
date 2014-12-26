@@ -2,8 +2,8 @@
   {{ product | html_product_configure | raw }}
   <section class="u-inputGroup">  
     {% if product.stock.available %}
-      <input class="u-inputGroup-field" type="number" name="quantity" value="{{ product.quantity }}">
-      <span class="u-inputGroup-btn"><input type="submit" value="{{ 'Add to cart' | t }}" onclick="$('#product_configure_form').submit();"></span>
+      <input class="u-inputGroup__field" type="number" name="quantity" value="{{ product.quantity }}">
+      <span class="u-inputGroup__btn"><input type="submit" value="{{ 'Add to cart' | t }}" onclick="$('#product_configure_form').submit();"></span>
     {% else %}
       <p>{{ 'Out of stock' | t }}</p>
     {% endif %}

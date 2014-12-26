@@ -1,6 +1,6 @@
 <ul class="currencies u-nav" itemscope itemtype="http://schema.org/PriceSpecification">
-  <li class="u-nav-item"><a href="{{ currency.url | url }}" title="{{ currency.title }}" itemprop="priceCurrency">{{ shop.currency2.code }}</a>
-    <ul class="u-nav-subnav">
+  <li class="u-nav__item"><a href="{{ currency.url | url }}" title="{{ currency.title }}" itemprop="priceCurrency">{{ shop.currency2.code }}</a>
+    <ul class="u-nav__subnav">
       {% for currency in shop.currencies %}
         <li><a href="{{ currency.url | url }}" title="{{ currency.title }}" itemprop="priceCurrency">{{ currency.code }}</a></li>
       {% endfor %}

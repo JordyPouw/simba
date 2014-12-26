@@ -51,7 +51,7 @@
           <h3>{{ 'Hallmarks' | t }}</h3>
           <ul class="u-listInline">  
             {% for hallmark in shop.hallmarks %}
-              <li class="hallmarks-hallmark"><a href="{{ hallmark.url | url }}" {% if hallmark.new_window %} target="_blank" {% endif %}>
+              <li class="hallmarks__hallmark"><a href="{{ hallmark.url | url }}" {% if hallmark.new_window %} target="_blank" {% endif %}>
                 {% if hallmark.image %}
                   <img src="{{ hallmark.image | url_image() }}" alt="{{ hallmark.title }}">
                 {% else %}
@@ -70,7 +70,7 @@
       <aside class="payments" itemscope itemtype="https://schema.org/PaymentMethod">
         <ul class="u-listInline">
           {% for payment in shop.payments %}
-            <li class="payments-payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="acceptedPaymentMethod url">
+            <li class="payments__payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="acceptedPaymentMethod url">
               <img src="{{ payment.icon | url_core }}" alt="{{ payment.title }}" itemprop="image">
             </a></li>
           {% endfor %}

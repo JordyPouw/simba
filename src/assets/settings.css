@@ -1,3 +1,8 @@
+/* ================================================================================
+ $ SEOSHOP SETTINGS.
+ ? Backoffice design config switches.
+================================================================================ */
+
 body {
   background: url('background.png') {{theme.background_color}} {{theme.background_repeat}} {{theme.background_position}};
 }
