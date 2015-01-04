@@ -1,0 +1,8 @@
+<ul class="actions">
+	{% if page.compare %}
+		<li><a href="{{ 'compare' | url }}">{{ 'Compare products' | t }}</a></li>
+	{% endif %}
+	<li><a href="{{ ('compare/add/' ~ product.vid) | url }}">{{ 'Add to compare' | t }}</a></li>
+	<li><a href="{{ ('account/wishlistAdd/' ~ product.id) | url }}">{{ 'Add to wishlist' | t }}</a></li>
+	<li><a href="{{ ('account/review/' ~ product.id) | url }}">{{ 'Add your review' | t }}</a></li>
+</ul>

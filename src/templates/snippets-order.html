@@ -1,4 +1,4 @@
-<form action="{{ ('cart/add/' ~ product.vid) | url }}" id="product_configure_form" method="post">  
+<form class="order" action="{{ ('cart/add/' ~ product.vid) | url }}" id="product_configure_form" method="post">  
   {{ product | html_product_configure | raw }}
   <section class="u-inputGroup">  
     {% if product.stock.available %}

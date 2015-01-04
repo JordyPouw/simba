@@ -571,8 +571,6 @@ legend {
 
 label {
   cursor: pointer;
-  display: block;
-  margin-bottom: 0.625em;
 }
 
 select {
@@ -934,6 +932,7 @@ dd {
  * Set default bottom margin for the components. 
  */
 .account,
+.actions,
 .brand,
 .breadcrumbs,
 .cart,
@@ -948,10 +947,13 @@ dd {
 .messages,
 .navigation,
 .newsletter,
+.order,
 .payments,
 .product,
+.product-configure-custom-option,
 .search,
-.serviceLinks {
+.serviceLinks,
+.share {
   margin-bottom: 0.625em;
 }
 
@@ -985,44 +987,6 @@ dd {
  $ TRUMPS.
  ? Utilities and overrides.
 ================================================================================ */
-
-
-/* $ Floats.
-================================================== */
-
-.u-left {
-  float: left;
-}
-
-.u-right {
-  float: right;
-}
-
-.u-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* $ Text aligns.
-================================================== */
-
-.u-txtLeft {
-  text-align: left;
-}
-
-.u-txtRight {
-  text-align: right;
-}
-
-.u-txtCenter {
-  text-align: center;
-}
-
-.u-txtJustify {
-  text-align: justify;
-}
 
 
 /* $ List inline.
@@ -1101,4 +1065,3 @@ dd {
   white-space: nowrap;
   width: 1%;
 }
-
