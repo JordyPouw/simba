@@ -1,8 +1,0 @@
-<article class="category" itemscope itemtype="http://schema.org/SiteNavigationElement">
-  {% if category.image %}
-    <img src="{{ category.image | url_image('270x240x1', category.title) }}" alt="{{ category.title }}" itemprop="image">
-  {% endif %}    
-  <a href="{{ category.url | url }}" itemprop="url">
-    <h2 itemprop="name">{{ category.title }}</h2>
-  </a>  
-</article>
