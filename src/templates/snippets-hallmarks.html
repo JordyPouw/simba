@@ -1,0 +1,11 @@
+<ul class="hallmarks u-listInline">  
+  {% for hallmark in shop.hallmarks %}
+    <li class="hallmarks__hallmark"><a href="{{ hallmark.url | url }}" {% if hallmark.new_window %} target="_blank" {% endif %}>
+      {% if hallmark.image %}
+        <img src="{{ hallmark.image | url_image() }}" alt="{{ hallmark.title }}">
+      {% else %}
+        {{ hallmark.title }}
+      {% endif %}
+    </a></li>
+  {% endfor %}
+</ul>

@@ -622,12 +622,9 @@ input[type="search"],
 input[type="url"],
 select,
 textarea {
-  display: block;
   width: 100%;
   padding: 0.625em 0.375em;
   border: 0.063em solid #ccc;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -953,8 +950,19 @@ dd {
 .product-configure-custom-option,
 .search,
 .serviceLinks,
-.share {
+.share,
+.tags,
+.zoombox {
   margin-bottom: 0.625em;
+}
+
+
+/* $ Filter.
+================================================== */
+
+.filter,
+.product-configure-custom-option select {
+  padding: 0;
 }
 
 
@@ -981,6 +989,13 @@ dd {
   margin-bottom: 0.625em;
 }
 
+
+/* $ Zoombox.
+================================================== */
+
+.zoombox__thumbs__thumb {
+  margin-top: 0.625em;
+}
 
 
 /* ================================================================================

@@ -2,9 +2,9 @@
 
   <div class="g-row12">
     <div class="g-xs6 g-sm4 g-md3">
-      <section class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <section>
         <h3>{{ 'Customer service' | t }}</h3>
-        <ul>
+        <ul class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
           {% for link in shop.links.service %}
             <li><a href="{{ link.url | url }}" itemprop="name url">{{ link.title }}</a></li>
           {% endfor %}
@@ -13,17 +13,17 @@
     </div>
 
     <div class="g-xs6 g-sm4 g-md3">
-      <section class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <section>
         <h3>{{ 'Products' | t }}</h3>
-        <ul>
+        <ul class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
           <li><a href="{{ 'collection' | url }}" itemprop="name url">{{ 'All products' | t }}</a></li>
           <li><a href="{{ 'collection/?sort=newest' | url }}" itemprop="name url">{{ 'Newest products' | t }}</a></li>
           <li><a href="{{ 'collection/offers' | url }}" itemprop="name url">{{ 'Offers' | t }}</a></li>
           {% if shop.brands %}
-          <li><a href="{{ 'brands' | url }}" itemprop="name url">{{ 'Brands' | t }}</a></li>
+            <li><a href="{{ 'brands' | url }}" itemprop="name url">{{ 'Brands' | t }}</a></li>
           {% endif %}
           {% if shop.tags %}
-          <li><a href="{{ 'tags' | url }}" itemprop="name url">{{ 'Tags' | t }}</a></li>
+            <li><a href="{{ 'tags' | url }}" itemprop="name url">{{ 'Tags' | t }}</a></li>
           {% endif %}
           <li><a href="{{ 'index.rss' | url }}" itemprop="name url">{{ 'RSS feed' | t }}</a></li>
         </ul>
@@ -31,15 +31,15 @@
     </div>
 
     <div class="g-xs6 g-sm4 g-md3">
-      <section class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <section>
         <h3>{{ 'My Account' | t }}</h3>  
-        <ul>
+        <ul class="serviceLinks" itemscope itemtype="http://schema.org/SiteNavigationElement">
           <li><a href="{{ 'account' | url }}" itemprop="name url">{{ 'My account' | t }}</a></li>
           <li><a href="{{ 'account/orders' | url }}" itemprop="name url">{{ 'My orders' | t }}</a></li>
           <li><a href="{{ 'account/tickets' | url }}" itemprop="name url">{{ 'My tickets' | t }}</a></li>
           <li><a href="{{ 'account/wishlist' | url }}" itemprop="name url">{{ 'My wishlist' | t }}</a></li>
           {% if page.account %}
-          <li><a href="{{ 'account/logout' | url }}" itemprop="name url">{{ 'Logout' | t }}</a></li>
+            <li><a href="{{ 'account/logout' | url }}" itemprop="name url">{{ 'Logout' | t }}</a></li>
           {% endif %}
         </ul>
       </section>
@@ -47,19 +47,9 @@
 
     {% if shop.hallmarks %}
       <div class="g-xs12 g-md3">
-        <section class="hallmarks">
+        <section>
           <h3>{{ 'Hallmarks' | t }}</h3>
-          <ul class="u-listInline">  
-            {% for hallmark in shop.hallmarks %}
-              <li class="hallmarks__hallmark"><a href="{{ hallmark.url | url }}" {% if hallmark.new_window %} target="_blank" {% endif %}>
-                {% if hallmark.image %}
-                  <img src="{{ hallmark.image | url_image() }}" alt="{{ hallmark.title }}">
-                {% else %}
-                  {{ hallmark.title }}
-                {% endif %}
-              </a></li>
-            {% endfor %}
-          </ul>
+          {% include 'snippets/hallmarks.rain' %}
         </section>
       </div>
     {% endif %}
@@ -67,14 +57,8 @@
 
   <div class="g-row12">
     <div class="g-xs12">
-      <aside class="payments" itemscope itemtype="https://schema.org/PaymentMethod">
-        <ul class="u-listInline">
-          {% for payment in shop.payments %}
-            <li class="payments__payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="acceptedPaymentMethod url">
-              <img src="{{ payment.icon | url_core }}" alt="{{ payment.title }}" itemprop="image">
-            </a></li>
-          {% endfor %}
-        </ul>
+      <aside>
+        {% include 'snippets/payments.rain' %}
       </aside>
     </div>
   </div>

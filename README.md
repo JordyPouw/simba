@@ -1,4 +1,4 @@
-# Simba: Alpha Version 0.8
+# Simba: Alpha Version 0.9
 *Note: it's an alpha version, not 100% ready for deployment.*
 
 ### Simplify Theme Development for SEOshop
@@ -47,6 +47,7 @@ Simba is a frontend framework that makes building SEOshop themes quick and easy.
     ├── snippets-currencies.rain
     ├── snippets-filter.rain
     ├── snippets-footer.rain
+    ├── snippets-hallmarks.rain    
     ├── snippets-header.rain
     ├── snippets-headlines.rain
     ├── snippets-languages.rain
@@ -55,6 +56,7 @@ Simba is a frontend framework that makes building SEOshop themes quick and easy.
     ├── snippets-navigation.rain
     ├── snippets-newsletter.rain
     ├── snippets-order.rain
+    ├── snippets-payments.rain
     ├── snippets-products.rain
     ├── snippets-search.rain
     ├── snippets-share.rain
@@ -63,10 +65,11 @@ Simba is a frontend framework that makes building SEOshop themes quick and easy.
 ```
 
 
-## Work in progress
-- Hallmarks
-- Layout fixed
-- Filter (select tag IE)
+## Coming soon
+- German legislation
+- Discount rules
+- Bundle products
+- Collection: pagination
 
 
 ## Known issues

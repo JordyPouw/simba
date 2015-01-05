@@ -8,6 +8,14 @@
 	  </div>
 	{% endif %}
 
+	{% if content %}
+		<div class="g-row12">
+			<div class="g-xs12">
+		    <p>{{ content | raw }}</p>
+		  </div>
+		</div>
+	{% endif %}
+
 	<div class="g-row12">
 		<div class="g-xs12">
 			<h1>{{ 'Featured' | t }}</h1>

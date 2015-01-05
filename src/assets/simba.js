@@ -64,7 +64,7 @@
 
 // Set doubleTapToGo on navigation.
 $(document).ready(function(){
-  $(':has(.u-nav-subnav)').doubleTapToGo();
+  $(':has(.u-nav__subnav)').doubleTapToGo();
 });
 
 
