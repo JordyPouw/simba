@@ -1,0 +1,8 @@
+<ul class="actions" itemscope itemtype="http://schema.org/potentialAction">
+	{% if page.compare %}
+		<li><a href="{{ 'compare' | url }}" itemprop="target">{{ 'Compare products' | t }}</a></li>
+	{% endif %}
+	<li><a href="{{ ('compare/add/' ~ product.vid) | url }}" itemprop="target">{{ 'Add to compare' | t }}</a></li>
+	<li><a href="{{ ('account/wishlistAdd/' ~ product.id) | url }}" itemprop="target">{{ 'Add to wishlist' | t }}</a></li>
+	<li><a href="{{ ('account/review/' ~ product.id) | url }}" itemprop="target">{{ 'Add your review' | t }}</a></li>
+</ul>

@@ -8,7 +8,7 @@
         <h2 itemprop="name">{{ product.title }}</h2>
       </a>
       <p itemprop="description">{{ product.description }}</p>
-      <p itemprop="price">{{ product.price.price | money }}</p>
+      <p>{{ product.price.price | money }}</p>
     </article> 
   </div>
 {% else %}
@@ -20,7 +20,7 @@
       <a href="{{ product.url | url }}" itemprop="url">
         <h2 itemprop="name">{{ product.title }}</h2>
       </a>
-      <p itemprop="price">{{ product.price.price | money }}</p>
+      <p>{{ product.price.price | money }}</p>
     </article> 
   </div>
 {% endif %}

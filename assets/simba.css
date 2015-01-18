@@ -604,9 +604,6 @@ textarea[disabled] {
   color: #ccc;
 }
 
-/**
- * Set default styles on all input elements.
- */
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -620,7 +617,6 @@ input[type="week"],
 input[type="month"],
 input[type="search"],
 input[type="url"],
-select,
 textarea {
   width: 100%;
   padding: 0.625em 0.375em;
@@ -629,6 +625,11 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  border: 0.063em solid #ccc;
 }
 
 input[type="text"]:focus,
@@ -936,6 +937,7 @@ dd {
 .category,
 .copyright,
 .currencies,
+.discounts,
 .filter,
 .hallmarks,
 .headlines,
@@ -945,6 +947,7 @@ dd {
 .navigation,
 .newsletter,
 .order,
+.pagination,
 .payments,
 .product,
 .product-configure-custom-option,
@@ -954,15 +957,6 @@ dd {
 .tags,
 .zoombox {
   margin-bottom: 0.625em;
-}
-
-
-/* $ Filter.
-================================================== */
-
-.filter,
-.product-configure-custom-option select {
-  padding: 0;
 }
 
 

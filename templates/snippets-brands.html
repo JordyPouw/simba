@@ -1,0 +1,8 @@
+<article class="brand" itemscope itemtype="http://schema.org/Brand">
+  {% if brand.image %}
+    <img src="{{ brand.image | url_image('270x240x1', brand.title) }}" alt="{{ brand.title }}" itemprop="logo">
+  {% endif %}    
+  <a href="{{ brand.url | url }}" itemprop="url">
+    <h2 itemprop="name">{{ brand.title }}</h2>
+  </a>  
+</article>

@@ -3,6 +3,10 @@
  ? Backoffice design config switches.
 ================================================================================ */
 
+
+/* $ Base.
+================================================== */
+
 body {
   background: url('background.png') {{theme.background_color}} {{theme.background_repeat}} {{theme.background_position}};
 }
@@ -18,4 +22,3 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   color: {{ theme.color_headings }};
 }
-

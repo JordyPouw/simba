@@ -16,4 +16,13 @@
 	  {% endfor %}
 	</div>
 
+	{% if collection.pages > 1 %}
+		{% set pagination = collection | paginate %}
+	  <div class="g-row12">
+	    <div class="g-xs12">
+	      {% include 'snippets/pagination.rain' %}
+	    </div>
+	  </div>
+	{% endif %}
+
 </main>

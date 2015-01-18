@@ -1,6 +1,6 @@
 <ul class="payments u-listInline" itemscope itemtype="https://schema.org/PaymentMethod">
   {% for payment in shop.payments %}
-    <li class="payments__payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="acceptedPaymentMethod url">
+    <li class="payments__payment"><a href="{{ 'service/payment-methods' | url }}" itemprop="url">
       <img src="{{ payment.icon | url_core }}" alt="{{ payment.title }}" itemprop="image">
     </a></li>
   {% endfor %}

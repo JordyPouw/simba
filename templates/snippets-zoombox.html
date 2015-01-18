@@ -1,10 +1,10 @@
 <article class="zoombox">
-	<img src="{{ product.image | url_image('270x300x2', product.fulltitle) }}" alt="{{ product.fulltitle }}">
+	<img src="{{ product.image | url_image('270x300x2', product.fulltitle) }}" alt="{{ product.fulltitle }}" itemprop="image">
 	<ul class="zoombox__thumbs u-listInline">
 		{% for image in product.images %}
 			<li class="zoombox__thumbs__thumb">
 			  <a href="{{ image | url_image('', product.fulltitle) }}">
-		      <img src="{{ image | url_image('70x70x2', product.fulltitle) }}" alt="{{ product.fulltitle }}">
+		      <img src="{{ image | url_image('70x70x2', product.fulltitle) }}" alt="{{ product.fulltitle }}" itemprop="image">
 			  </a>
 			</li>
 		{% endfor %}

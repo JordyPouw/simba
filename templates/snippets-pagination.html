@@ -1,0 +1,13 @@
+<ul class="pagination u-listInline">
+	{% if pagination.previous %}
+	  <li><a href="{{ pagination.previous.url | url }}">&#8592;</a></li>
+	{% endif %}
+	{% for part in pagination.parts %}
+	  {% if part.url %} 
+	    <li><a href="{{ part.url | url }}">{{ part.title }}</a></li>
+	  {% endif %}
+	{% endfor %}
+	{% if pagination.next %}  
+	  <li><a href="{{ pagination.next.url | url }}">&#8594;</a></li>
+	{% endif %}
+</ul>

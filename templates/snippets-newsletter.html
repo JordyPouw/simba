@@ -1,5 +1,5 @@
-<section class="newsletter">
-  <form class="u-inputGroup" id="formNewsletter" action="{{ 'account/newsletter' | url }}" method="post">
+<section class="newsletter" itemscope itemtype="http://schema.org/potentialAction">
+  <form class="u-inputGroup" id="formNewsletter" action="{{ 'account/newsletter' | url }}" method="post" itemprop="target">
   	<input type="hidden" name="key" value="{{ page.key }}">
     <input class="u-inputGroup__field" id="formNewsletterEmail" type="email" name="email" placeholder="{{ 'Enter your email adress' | t }}">
     <span class="u-inputGroup__btn"><input class="btn" type="submit" onclick="$('#formNewsletter').submit(); return false;" value="{{ 'Subscribe' | t }}"></span>  

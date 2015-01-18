@@ -1,4 +1,4 @@
-<main>
+<main itemscope itemtype="http://schema.org/IndividualProduct">
 
 	<div class="g-row12">
 		<div class="g-xs12">
@@ -23,10 +23,25 @@
 		<div class="g-xs12 g-sm6">
 			<section>
 				<header>
-					<h1>{{ product.title }}</h1>
+					<h1 itemprop="name">{{ product.title }}</h1>
 				</header>
 				<main>
 					<p>{{ product.price.price | money }}</p>
+
+					{% if product.discounts or product.discount_rules %}
+					  <ul class="discounts">
+					    {% if product.discounts %}
+					      {% for discount in product.discounts %}
+					        <li>{{ 'Buy $1 for $2 each and save $3' | t (discount.quantity, discount.price | money, discount.percentage | percentage) }}</li>
+					      {% endfor %}
+					    {% endif %}    
+					    {% if product.discount_rules %}
+					      {% for discount_rule in product.discount_rules %}
+					        <li>{{ discount_rule }}</li>
+					      {% endfor %}
+					    {% endif %}
+					  </ul>
+					{% endif %}
 
 					{% if product.description %}
 						<p>{{ product.description }}</p>
@@ -48,7 +63,7 @@
 						  {% if product.score %}
 							  <tr>
 							    <td>{{ 'Product score' | t }}:</td>
-							    <td>{{ product.score * 10 }}/10</td>
+							    <td itemprop="review">{{ product.score * 10 }}/10</td>
 							  </tr>
 						  {% else %}
 							  <tr>
@@ -59,31 +74,25 @@
 						  {% if product.code %}
 							  <tr>
 							    <td>{{ 'Article number' | t }}:</td>
-							    <td>{{ product.code }}</td>
-							  </tr>
-						  {% endif %}
-						  {% if product.code %}
-							  <tr>
-							    <td>{{ 'Article number' | t }}:</td>
-							    <td>{{ product.code }}</td>
+							    <td itemprop="serialNumber">{{ product.code }}</td>
 							  </tr>
 						  {% endif %}
 							{% if product.brand %}
 								<tr>
 									<td>{{ 'Brand' | t }}</td>
-									<td>{{ product.brand.title }}</td>
+									<td itemprop="brand">{{ product.brand.title }}</td>
 							  </tr>
 							{% endif %}
 						  {% if product.stock.track and product.stock.on_stock %}
-							  <tr>
+							  <tr itemscope itemtype="https://schema.org/InStock">
 							    <td>{{ 'Quantity' | t }}:</td>
 							    <td>{{ product.stock.level }}</td>
 							  </tr>
 						  {% endif %}
 						  {% if product.stock.delivery %}
-							  <tr>
+							  <tr itemscope itemtype="http://schema.org/ParcelDelivery">
 							    <td>{{ 'Delivery time' | t }}:</td>
-							    <td>{{ product.stock.delivery.title }}</td>
+							    <td itemprop="expectedArrivalFrom">{{ product.stock.delivery.title }}</td>
 							  </tr>
 						  {% endif %}
 						  {% if product.unit %}
